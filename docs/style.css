@@ -1,0 +1,36 @@
+body {
+  background-color: black;
+  color: #56C1FF;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin: 20px;
+  text-align: left;
+  font-family: "Gill Sans", sans-serif;
+  font-weight: 500
+}
+
+.centered-content {
+  text-align: center;
+}
+
+.centered-content > * {
+  margin-bottom: 10px;
+}
+
+a {
+  color: #80afff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.bottom-section {
+  background-color: white;
+}

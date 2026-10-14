@@ -153,6 +153,12 @@ h2 {
   height: 200px;
 }
 
+.page-header .header-logo.wide-logo {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+}
+
 .video-wrapper {
   display: flex;
   justify-content: center;
@@ -166,4 +172,24 @@ h2 {
   height: auto;
   border: none;
   border-radius: 12px;
+}
+.pot-smasher-page {
+  background-image: url("assets/ps_background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.pot-smasher-page,
+.pot-smasher-page a {
+  color: #fff;
+}
+
+.pot-smasher-page .fixed-footer p {
+  color: var(--accent-blue);
+}
+
+.pot-smasher-page .centered-content a {
+  color: #f2da63;
 }

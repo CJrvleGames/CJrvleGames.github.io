@@ -193,3 +193,174 @@ h2 {
 .pot-smasher-page .centered-content a {
   color: #f2da63;
 }
+
+/* ---------- Pot Smasher: consistent spacing (40px between blocks) ---------- */
+.pot-smasher-page .video-wrapper {
+  padding-bottom: 0;
+}
+
+.pot-smasher-page .centered-content {
+  margin-top: 40px;
+}
+
+.pot-smasher-page .centered-content > * {
+  margin-bottom: 0;
+}
+
+/* ---------- Pot Smasher: download button ---------- */
+.download-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.download-link img {
+  width: 1.1em;
+  height: 1.1em;
+  display: block;
+}
+
+/* ---------- Pot Smasher: features (plain text) ---------- */
+.features {
+  max-width: 800px;
+  margin: 40px auto 0;
+  padding: 0 20px;
+}
+
+.features p {
+  margin: 0 0 16px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.features p:last-child {
+  margin-bottom: 0;
+}
+
+.features strong {
+  color: #f2da63;
+  font-weight: normal;
+}
+
+/* ---------- Pot Smasher: screenshot carousel ---------- */
+.carousel {
+  position: relative;
+  max-width: 1100px;
+  margin: 40px auto 0;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 16px;
+  padding: 0 15%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 12%, #000 88%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 12%, #000 88%, transparent 100%);
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-track img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 12px;
+  scroll-snap-align: center;
+  opacity: 0.45;
+  transition: opacity 0.3s;
+}
+
+.carousel-track img.active {
+  opacity: 1;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.carousel-btn svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.carousel-btn.hidden {
+  display: none;
+}
+
+.carousel-btn:hover {
+  background: rgba(0, 0, 0, 0.85);
+  color: #f2da63;
+}
+
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
+
+@media (max-width: 700px) {
+  .download-link {
+    font-size: 24px;
+  }
+}
+
+/* ---------- Home page: Wishlist section ---------- */
+.wishlist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  margin-top: 24px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.centered-content > .home-logo {
+  display: block;
+  margin: 0 auto;
+}
+
+.wishlist-logo {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+
+.wishlist .download-link {
+  font-size: 16px;
+}
+
+.wishlist + .game-grid {
+  padding-top: 24px;
+}
+
+.wishlist .video-wrapper {
+  width: 100%;
+  padding: 0;
+}
+
+.wishlist .video-wrapper iframe {
+  max-width: 640px;
+}

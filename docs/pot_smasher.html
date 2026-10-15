@@ -34,12 +34,74 @@
     </div>
 
     <div class="centered-content">
-      <div class="icon-row">
-        <a href="https://store.steampowered.com/app/5048070/Pot_Smasher/">Download on Steam</a>
+      <a class="download-link" href="https://store.steampowered.com/app/5048070/Pot_Smasher/">
+        <span>Download on Steam</span>
+        <img src="assets/steam_logo.png" alt="">
+      </a>
+    </div>
+
+    <div class="features">
+      <p><strong>Pots and hammers!</strong> Make progress by upgrading your pot and hammer through 26 different tiers.</p>
+      <p><strong>Upgrades!</strong> Purchase upgrades in the shop with coins or rare diamonds to assist your pot smashing experience.</p>
+      <p><strong>Zones!</strong> As you collect more coins, you will find yourself among 4 special zones. Discover the zones and defend against the enemies who reside in them.</p>
+      <p><strong>Enemies!</strong> You are not alone, fight against 12 different enemies trying to steal your coins and claim their relics.</p>
+      <p><strong>Relics!</strong> Discover 12 unique relics and equip up to 3 for helpful stat boosts and new mechanics.</p>
+      <p><strong>Flowers!</strong> Care for 13 different types of flowers in your garden.</p>
+    </div>
+
+    <div class="carousel">
+      <button class="carousel-btn prev" aria-label="Previous screenshot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4 L8 12 L16 20"/></svg></button>
+      <div class="carousel-track">
+      <img src="assets/sc1.png" alt="Pot Smasher screenshot" loading="lazy">
+      <img src="assets/sc2.png" alt="Pot Smasher screenshot" loading="lazy">
+      <img src="assets/sc3.png" alt="Pot Smasher screenshot" loading="lazy">
+      <img src="assets/sc4.png" alt="Pot Smasher screenshot" loading="lazy">
+      <img src="assets/sc5.png" alt="Pot Smasher screenshot" loading="lazy">
+      <img src="assets/sc6.png" alt="Pot Smasher screenshot" loading="lazy">
+      <img src="assets/sc7.png" alt="Pot Smasher screenshot" loading="lazy">
+      <img src="assets/sc8.png" alt="Pot Smasher screenshot" loading="lazy">
       </div>
+      <button class="carousel-btn next" aria-label="Next screenshot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4 L16 12 L8 20"/></svg></button>
     </div>
 
   </div>
+
+  <script>
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const prevBtn = document.querySelector('.carousel-btn.prev');
+    const nextBtn = document.querySelector('.carousel-btn.next');
+
+    function slideStep() {
+      return slides[0].offsetWidth + 16;
+    }
+
+    function updateActive() {
+      const center = track.scrollLeft + track.clientWidth / 2;
+      let best = 0, bestDist = Infinity;
+      slides.forEach((img, i) => {
+        const d = Math.abs(img.offsetLeft + img.offsetWidth / 2 - center);
+        if (d < bestDist) { bestDist = d; best = i; }
+      });
+      slides.forEach((img, i) => img.classList.toggle('active', i === best));
+
+      const atStart = track.scrollLeft <= 2;
+      const atEnd = track.scrollLeft >= track.scrollWidth - track.clientWidth - 2;
+      prevBtn.classList.toggle('hidden', atStart);
+      nextBtn.classList.toggle('hidden', atEnd);
+    }
+
+    prevBtn.addEventListener('click', () => {
+      track.scrollBy({ left: -slideStep(), behavior: 'smooth' });
+    });
+    nextBtn.addEventListener('click', () => {
+      track.scrollBy({ left: slideStep(), behavior: 'smooth' });
+    });
+    track.addEventListener('scroll', updateActive);
+    window.addEventListener('resize', updateActive);
+    window.addEventListener('load', updateActive);
+    updateActive();
+  </script>
 
   <div class="fixed-footer">
     <p>Follow me on all my socials for updates and releases</p>
